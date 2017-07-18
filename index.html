@@ -1,0 +1,13 @@
+<script>
+var str = document.getElementById("yea").value;
+var final = "const Eris = require("eris");\nvar bot = new Eris("BOT_TOKEN");\n"
+function myFunction() {
+    final = final + str.replace("client.Dispatcher.on(Events.GATEWAY_READY, e => {", "bot.on("ready", () => {");
+final = final + str.replace("client.Dispatcher.on(Events.MESSAGE_CREATE, e => {", "bot.on("messageCreate", (msg) => {");
+final = final + str.replace("e.message.content", "msg.content");
+final = final + str.replace("e.message.channel.sendMessage", "bot.createMessage");
+final = final + "\nbot.connect();";
+}
+</script>
+
+
